@@ -2,6 +2,21 @@ import { numberValidate } from "../helpers/";
 import { TState, TCurrency } from "../reducers";
 import * as types from "./types";
 
+export const setCredentials = ({
+  login,
+  password
+}: {
+  login: string;
+  password: string;
+}): types.setCredentialsType => ({
+  type: "SET_CREDENTIALS",
+  payload: { login, password }
+});
+
+export const getCredentialsRequest = (): types.getCredentialsRequest => ({
+  type: "GET_CREDENTIALS_REQUEST"
+});
+
 export const getRatesRequest = (): types.getRatesRequest => ({
   type: "GET_RATES_REQUEST"
 });

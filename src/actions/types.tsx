@@ -1,5 +1,14 @@
 import { TCurrency } from "../reducers";
 
+export type setCredentialsType = {
+  type: "SET_CREDENTIALS";
+  payload: { login: string; password: string };
+};
+
+export type getCredentialsRequest = {
+  type: "GET_CREDENTIALS_REQUEST";
+};
+
 export type getRatesRequest = {
   type: "GET_RATES_REQUEST";
 };

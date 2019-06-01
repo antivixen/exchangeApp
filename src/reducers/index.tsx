@@ -18,11 +18,15 @@ export type TPair = {
 };
 
 export type TState = {
+  isLogged: boolean;
+  credentials: { login: string; password: string };
   pockets: Array<TPocket>;
   pair: TPair;
   error: any;
 };
 export const initialState: TState = {
+  isLogged: false,
+  credentials: { login: "", password: "" },
   pockets: [
     { type: "USD", sign: "$", amount: 100 },
     { type: "GBP", sign: "£", amount: 100 },
@@ -34,6 +38,16 @@ export const initialState: TState = {
 
 export const reducer = (state = initialState, action: TAction) => {
   switch (action.type) {
+    case "SET_CREDENTIALS":
+      return {
+        ...state,
+        isLogged: true,
+        credentials: {
+          ...state.credentials,
+          login: action.payload.login,
+          password: action.payload.password
+        }
+      };
     case "SET_BASE_CURRENCY":
       return { ...state, pair: { ...state.pair, base: action.payload } };
     case "SET_EXCHANGE_CURRENCY":
