@@ -42,11 +42,7 @@ const Login = ({ setCredentials }: TProps) => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const _onSubmit = () => {
-    if (login.length && isValid(password)) {
-      setCredentials({ login, password });
-    }
-  };
+  const _onSubmit = () => setCredentials({ login, password });
 
   return (
     <LoginContainer>
